@@ -1,7 +1,7 @@
 
 describe('Central de Atendimento ao Cliente TAT', () => {
   beforeEach (() => {
-      cy.visit('index.html')
+      cy.visit('./src/index.html')
     })
 
     it('Validar Mensagem de Sucesso', () => {
@@ -72,7 +72,22 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       cy.get('#lastName').as('sobrenome').type('testado').clear().should('have.value', '')
       cy.get('#email').as('e-mail').type('teste@testado.com').clear().should('have.value', '')
       cy.get('#phone').as('telefone').type('31746894').clear().should('have.value', '')
+      cy.get('button[type="submit"]').as('enviar').click()
 
+      cy.get('.error').as('mensagemErro').should('be.visible')
+    })
+
+    it('Validar Envio do Formulário Sem Dados', () => {
+      const longText = Cypress._.repeat('', 10)
+
+      cy.title().should('be.equal', 'Central de Atendimento ao Cliente TAT')
+      cy.get('#firstName').as('nome').type(' ')
+      cy.get('#lastName').as('sobrenome').type(' ')
+      cy.get('#email').as('e-mail').type(' ')
+      cy.get('#phone').as('telefone').type(' ')
+      cy.get('button[type="submit"]').as('enviar').click()
+
+      cy.get('.error').as('mensagemErro').should('be.visible')
     })
 })
 
