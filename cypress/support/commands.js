@@ -1,4 +1,4 @@
-Cypress.Commands.add('fillMandatoryFieldsAndSubmit', () => {
+Cypress.Commands.add('fillMandatoryFieldsAndSubmit', (data) => {
     cy.title().should('be.equal', 'Central de Atendimento ao Cliente TAT')
     cy.get('#firstName').as('nome').type(data.firstName)
     cy.get('#lastName').as('sobrenome').type(data.lastName)

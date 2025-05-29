@@ -22,5 +22,11 @@
   ],
   "author": "Walmyr <wlsf82@gmail.com> (https://walmyr.dev/)",
   "license": "MIT",
-  "homepage": "https://github.com/wlsf82/cypress-do-zero-a-nuvem#readme"
+  "homepage": "https://github.com/wlsf82/cypress-do-zero-a-nuvem#readme",
+  "dependencies": {
+    "cypress": "^14.4.0"
+  },
+  "devDependencies": {
+    "electron": "^36.3.2"
+  }
 }
