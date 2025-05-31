@@ -4,5 +4,8 @@ Cypress.Commands.add('fillMandatoryFieldsAndSubmit', (data) => {
     cy.get('#lastName').as('sobrenome').type(data.lastName)
     cy.get('#email').as('e-mail').type(data.email)
     cy.get('#open-text-area').as('descricao').type(data.text)
-    cy.get('button[type="submit"]').as('enviar').click()
+    //cy.get('button[type="submit"]').as('enviar').click()
+    cy.contains('button', 'Enviar', {
+        timeout: 10000
+    }).should('be.visible').click()
 })
