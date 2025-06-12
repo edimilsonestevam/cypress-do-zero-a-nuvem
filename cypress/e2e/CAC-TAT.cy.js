@@ -135,6 +135,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .should('be.checked')
       .last() //Pegar o último elemento
       .uncheck()
+      .should('not.be.checked')
   })
 
 })
